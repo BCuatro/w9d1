@@ -9,6 +9,16 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./src/asteroid.js":
+/*!*************************!*\
+  !*** ./src/asteroid.js ***!
+  \*************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+eval("const Utils = __webpack_require__(/*! ./utils */ \"./src/utils.js\")\nconst MovingObject = __webpack_require__(/*! ./moving_object */ \"./src/moving_object.js\")\n\nfunction Asteroid({pos = [250, 0], vel = [0,10], radius = 50, color = \"black\"}) {\n    this.pos = pos;\n    this.vel = vel;\n    this.radius = radius;\n    this.color = color;\n\n    Utils.inherits(Asteroid, MovingObject);\n}\n\n\nwindow.Asteroid = Asteroid;\nmodule.exports = Asteroid;\n\n//# sourceURL=webpack://webpack/./src/asteroid.js?");
+
+/***/ }),
+
 /***/ "./src/index.js":
 /*!**********************!*\
   !*** ./src/index.js ***!
@@ -23,9 +33,19 @@ eval("\nconsole.log(\"Webpack is working!\")\nconst MovingObject =__webpack_requ
 /*!******************************!*\
   !*** ./src/moving_object.js ***!
   \******************************/
-/***/ ((module) => {
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-eval("function MovingObject ({pos,vel,radius,color}){\n    this.pos= pos;\n    this.vel =vel;\n    this.radius = radius;\n    this.color=color;\n\n    function move() {\n        this.pos[0] +=vel[0];\n        this.pos[1] += vel[1];\n    }\n}\n\nmodule.exports = MovingObject;\n\n\n\n//# sourceURL=webpack://webpack/./src/moving_object.js?");
+eval("const Utils = __webpack_require__(/*! ./utils */ \"./src/utils.js\")\n\nfunction MovingObject ({pos,vel,radius,color}){\n    this.pos= pos;\n    this.vel =vel;\n    this.radius = radius;\n    this.color=color;\n\n    function move() {\n        this.pos[0] +=vel[0];\n        this.pos[1] += vel[1];\n    }\n}\n\nmodule.exports = MovingObject;\n\n\n\n//# sourceURL=webpack://webpack/./src/moving_object.js?");
+
+/***/ }),
+
+/***/ "./src/utils.js":
+/*!**********************!*\
+  !*** ./src/utils.js ***!
+  \**********************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+eval("const MovingObject = __webpack_require__(/*! ./moving_object */ \"./src/moving_object.js\")\nconst Asteroid = __webpack_require__(/*! ././asteroid */ \"./src/asteroid.js\")\n\n\nconst Util = {\n    inherits: function inherits (childClass, parentClass){\n        Surrogate = function(){};\n        Surrogate.prototype = parentClass.prototype;\n        childClass.prototype = new Surrogate();\n        childClass.prototype.constructor = childClass;\n    }\n};\n\nmodule.exports = Util;\n\n//# sourceURL=webpack://webpack/./src/utils.js?");
 
 /***/ })
 
