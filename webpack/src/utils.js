@@ -2,7 +2,7 @@ const MovingObject = require("./moving_object")
 const Asteroid = require("././asteroid")
 
 
-const Util = {
+const Utils = {
     inherits: function inherits (childClass, parentClass){
         Surrogate = function(){};
         Surrogate.prototype = parentClass.prototype;
@@ -11,4 +11,4 @@ const Util = {
     }
 };
 
-module.exports = Util;
+module.exports = Utils;
