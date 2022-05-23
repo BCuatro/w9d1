@@ -6,7 +6,6 @@ function Asteroid(pos = [250, 0], vel = [0,10], radius = 50, color = "black") {
     this.vel = vel;
     this.radius = radius;
     this.color = color;
-    debugger
     Utils.inherits(this, MovingObject);
 }
 
